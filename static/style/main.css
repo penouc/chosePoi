@@ -1,0 +1,137 @@
+html{
+  height:100%
+}
+
+body{
+  height:100%;
+  margin:0px;
+  padding:0px;
+}
+
+fieldset{
+  border: none;
+  padding: 0;
+}
+
+#header{
+  width: 68%;
+  margin: 0 auto;
+}
+
+.nav{
+  width: 50%;
+  bottom: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+#maino{
+  padding: 0 15px;
+  min-height: 90%;
+  height: 92%;
+}
+
+#l-map{
+  height:98%;
+  width:75%;
+  float:left;
+  border-right:1px solid #bcbcbc;
+}
+
+#tpl_tab_pane{
+  display: none;
+}
+
+.rightside{
+  height: 80%;
+  padding: 5px !important;
+  width: 24%;
+  float: right;
+}
+
+.btn-container-hidden{
+  margin:10px 0;
+  padding: 0;
+}
+
+#outValue{
+  font-size: 10px;
+}
+
+#currentPoi{
+  height: 20px;
+  width: 220px;
+}
+
+.checks{
+  max-height: 380px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.checks p{
+  margin: 0;
+}
+
+.checkshalf{
+  width: 50%;
+}
+
+.spright{
+  float: right;
+  margin-right: 20px;
+}
+
+.til a{
+  text-decoration: none;
+  color: black;
+}
+
+.ui.checkbox{
+  margin: 10px 0;
+}
+
+#commonTool{
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 12px;
+  width: 24%;
+  float: right;
+}
+
+#commonTool>div{
+  margin: 5px 0;
+}
+
+#commonTool textarea{
+  width: 90%;
+  height: 48px;
+  margin-top: 10px;
+  display: none;
+}
+
+.sdbox{
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,.1);
+}
+
+.squa{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-left: 5px;
+  border-radius: 15px;
+  vertical-align: middle;
+}
+
+#loading{
+  position:fixed;
+  _position:absolute;
+  top:60%;
+  left:90%;
+  width:124px;
+  height:124px;
+  overflow:hidden;
+  background:url(../images/load.gif) no-repeat;z-index:7; 
+  margin:-62px 0 0 -62px;
+}  

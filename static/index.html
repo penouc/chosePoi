@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" type="text/css" href="./style/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./style/bootstrap-switch.css">
+<link rel="stylesheet" type="text/css" href="./style/main.css">
+
+
+<title>可视化选址工具</title>
+</head>
+<body>
+  <div id="header">
+    <ul class="nav nav-tabs nav-justified " id="myTab" role="tablist">
+      <li role="presentation" class="active"><a role="tab" data-toggle="tab" href="#work">上下班人群</a></li>
+      <li role="presentation"><a role="tab" data-toggle="tab" href="#business">商务拜访</a></li>
+      <li role="presentation"><a role="tab" data-toggle="tab" href="#shopping">商超</a></li>
+      <li role="presentation"><a role="tab" data-toggle="tab" href="#scentic">景点</a></li>
+      <li role="presentation"><a role="tab" data-toggle="tab" href="#hospital">医院</a></li>
+      <li role="presentation"><a role="tab" data-toggle="tab" href="#transport">火车/飞机</a></li>
+    </ul>
+  </div>
+
+  <div id="maino">
+	  <div id="l-map"></div>
+      
+    <div id="commonTool" class="sdbox">
+        <div>
+          <input class="poi" data-pan="add" name="switchy" data-size="mini" checked type="checkbox" value="添加"><span>手动添加点</span>
+          <button class="btn btn-warning btn-xs" data-pan="clear" >清除</button><span>清除选中的点</span><br>
+        </div>
+        <div>
+          <button class="btn btn-primary btn-xs" data-pan="saveJson" >保存</button><span>将选中的点保存;&nbsp;</span>
+          <button class="btn btn-success btn-xs" data-pan='measure'>测距</button><span>使用测距功能</span>
+        </div>
+        <textarea id="currentPoi"></textarea>
+    </div>
+    <div class="tab-content rightside sdbox">
+      <div class="tab-pane fade in active" id="work"> 
+        &nbsp;
+        </div>
+        <div class="tab-pane fade" id="business"></div>
+        <div class="tab-pane fade" id="shopping"></div>
+        <div class="tab-pane fade" id="scentic"></div>
+        <div class="tab-pane fade" id="hospital"></div>
+        <div class="tab-pane fade" id="transport"></div>
+
+  </div>  
+</div>
+
+<div id="tpl_tab_pane">
+    <div class="btn-container-hidden">
+    <fieldset>
+        <input class="poi" data-pan="cluster" name="dyswitchy" data-size="mini" checked type="checkbox">&nbsp;&nbsp;显示{point_name}点簇中心点<br>
+        <input class="poi" data-pan="sample" name="dyswitchy" data-size="mini" checked type="checkbox">&nbsp;&nbsp;显示{point_name}点散点图
+    </fieldset>
+    </div>
+    <div class="btn-container-hidden">
+      <fieldset class="checks">
+        <div id="{check_name}" class="checkshalf"></div>
+      </fieldset>
+    </div>
+    <div class="btn-container-hidden">
+      <input class="poi" name="dyswitchy"  data-pan='manpoi' data-size="mini" checked type="checkbox">&nbsp;&nbsp;显示最终选点
+      <button class="btn btn-primary btn-xs" data-pan='reset'>载入备份</button>
+      <button class="btn btn-info btn-xs" data-pan='load'>载入</button> 
+    </div>
+</div>
+
+<div id="loading">
+</div>
+
+<script src="../sea-modules/seajs/seajs/2.2.0/sea.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=A4749739227af1618f7b0d1b588c0e85"></script>
+<script type="text/javascript">
+
+
+// 百度地图API功能
+var map = new BMap.Map("l-map");          // 创建地图实例
+var point = new BMap.Point(116.418261,39.921984);  // 创建点坐标
+map.centerAndZoom(point, 12);                 // 初始化地图，设置中心点坐标和地图级别
+map.enableScrollWheelZoom();
+
+seajs.config({
+  base: "../sea-modules/",
+  alias: {
+    "jquery": "jquery/jquery/1.10.1/jquery.js",
+    "jquery-add": "jquery/jquery-add/jquery.address.js",
+    "distance": "bmap/DistanceTool.js",
+    "bootstrap": "bootstrap/bootstrap.js",
+    'bootstrap-switch': "bootstrap/bootstrap-switch.js"
+  }
+});
+
+seajs.use("../static/js/main");
+
+</script>
+</body>
+</html>
